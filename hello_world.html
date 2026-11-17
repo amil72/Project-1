@@ -15,6 +15,10 @@
     body::after { opacity:.25; transform:scale(1.35); animation-duration:110s; animation-direction:reverse; }
     @keyframes drift { to { transform:translate3d(4%, -3%, 0) rotate(5deg); } }
     main { position:relative; z-index:1; width:min(680px, calc(100% - 36px)); padding:clamp(34px,8vw,76px) 24px; text-align:center; }
+    nav { position:absolute; z-index:2; top:28px; left:50%; transform:translateX(-50%); display:flex; gap:8px; padding:6px; border:1px solid rgba(255,255,255,.1); border-radius:999px; background:rgba(18,19,39,.45); backdrop-filter:blur(12px); }
+    nav a { padding:9px 14px; border-radius:999px; color:#c7c4db; text-decoration:none; font-size:12px; font-weight:700; transition:background .2s,color .2s; }
+    nav a:hover, nav a[aria-current="page"] { color:#fff; background:rgba(255,255,255,.11); }
+    nav a:focus-visible { outline:2px solid var(--aqua); outline-offset:2px; }
     .orb { position:absolute; z-index:-1; top:50%; left:50%; width:min(580px,90vw); aspect-ratio:1; transform:translate(-50%,-53%); border-radius:50%; background:radial-gradient(circle,rgba(128,105,255,.17),rgba(85,225,204,.07) 42%,transparent 69%); filter:blur(12px); }
     .eyebrow { display:inline-flex; align-items:center; gap:10px; color:var(--aqua); font:500 11px 'DM Mono',monospace; letter-spacing:.2em; text-transform:uppercase; }
     .eyebrow::before { content:""; width:6px; height:6px; border-radius:50%; background:var(--aqua); box-shadow:0 0 14px var(--aqua); }
@@ -41,6 +45,11 @@
     </div>
     <div class="note">MADE OF PIXELS &amp; POSSIBILITY</div>
   </main>
+  <nav aria-label="Main navigation">
+    <a href="index.html" aria-current="page">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
   <script>
     const button = document.querySelector('#hello');
     const label = button.querySelector('span:last-child');
