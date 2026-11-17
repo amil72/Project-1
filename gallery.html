@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101326">
+  <meta name="description" content="A little gallery of color, light, and inspiration.">
+  <title>Gallery — Hello, World!</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+    :root { color-scheme:dark; --ink:#f5f3ff; --muted:#aca9c5; --aqua:#9af5e2; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100svh; color:var(--ink); font-family:Manrope,system-ui,sans-serif; background:radial-gradient(ellipse at 50% 25%,#282348 0%,#17172d 38%,#101326 75%); }
+    body::before { content:""; position:fixed; inset:-30%; z-index:-1; pointer-events:none; background-image:radial-gradient(1px 1px at 20% 30%,#fff 98%,transparent),radial-gradient(1px 1px at 70% 60%,#b6f6ea 98%,transparent),radial-gradient(2px 2px at 45% 80%,#fff 98%,transparent),radial-gradient(1px 1px at 85% 15%,#d1c4ff 98%,transparent); background-size:173px 191px,229px 211px,307px 277px,251px 263px; opacity:.48; animation:drift 70s linear infinite; }
+    @keyframes drift { to { transform:translate3d(4%,-3%,0) rotate(5deg); } }
+    nav { position:fixed; z-index:2; top:24px; left:50%; transform:translateX(-50%); display:flex; gap:8px; padding:6px; border:1px solid rgba(255,255,255,.1); border-radius:999px; background:rgba(18,19,39,.65); backdrop-filter:blur(12px); }
+    nav a { padding:9px 14px; border-radius:999px; color:#c7c4db; text-decoration:none; font-size:12px; font-weight:700; transition:background .2s,color .2s; white-space:nowrap; }
+    nav a:hover,nav a[aria-current="page"] { color:#fff; background:rgba(255,255,255,.11); }
+    nav a:focus-visible { outline:2px solid var(--aqua); outline-offset:2px; }
+    main { width:min(1000px,calc(100% - 36px)); margin:auto; padding:112px 0 64px; text-align:center; }
+    .eyebrow { display:inline-flex; align-items:center; gap:10px; color:var(--aqua); font:500 11px 'DM Mono',monospace; letter-spacing:.2em; text-transform:uppercase; }
+    .eyebrow::before { content:""; width:6px; height:6px; border-radius:50%; background:var(--aqua); box-shadow:0 0 14px var(--aqua); }
+    h1 { margin:18px 0 12px; font-size:clamp(54px,10vw,86px); line-height:1; letter-spacing:-.075em; font-weight:800; }
+    h1 span { color:transparent; background:linear-gradient(110deg,#fff 8%,#c3b5ff 48%,#93efdf 95%); -webkit-background-clip:text; background-clip:text; }
+    .intro { margin:0 auto; color:var(--muted); font-size:16px; line-height:1.8; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:38px; text-align:left; }
+    figure { position:relative; min-height:245px; margin:0; overflow:hidden; isolation:isolate; border:1px solid rgba(255,255,255,.13); border-radius:20px; background:#22213c; box-shadow:0 18px 50px rgba(0,0,0,.2); }
+    figure::before { content:""; position:absolute; z-index:-1; inset:0; transition:transform .6s cubic-bezier(.2,.7,.2,1); }
+    figure:hover::before { transform:scale(1.07); }
+    .art-one::before { background:radial-gradient(ellipse at 68% 30%,rgba(255,244,199,.95) 0 3%,transparent 4%),radial-gradient(ellipse at 67% 33%,#f6a77b 0,transparent 25%),linear-gradient(155deg,#322b64 0%,#66519a 43%,#f2a17f 70%,#432f69 100%); }
+    .art-two::before { background:radial-gradient(ellipse at 50% 75%,#80efd8 0,transparent 29%),radial-gradient(ellipse at 35% 44%,#8f72dc 0,transparent 31%),linear-gradient(145deg,#212957,#35487c 55%,#18233f); }
+    .art-three::before { background:radial-gradient(ellipse at 50% 25%,rgba(255,255,255,.9) 0 2%,transparent 3%),radial-gradient(ellipse at 50% 40%,#f6d4a2 0,transparent 27%),linear-gradient(160deg,#34284e,#b46e89 48%,#f0b28e 70%,#574069); }
+    .art-four::before { background:radial-gradient(ellipse at 25% 70%,#97f1da 0,transparent 22%),radial-gradient(ellipse at 78% 34%,#b69dff 0,transparent 28%),linear-gradient(140deg,#183341,#29305c 60%,#472d5f); }
+    .art-five::before { background:radial-gradient(ellipse at 60% 33%,#ffd6a0 0,transparent 19%),radial-gradient(ellipse at 35% 75%,#e88ba9 0,transparent 24%),linear-gradient(145deg,#30244f,#684679 55%,#d07a8e); }
+    .art-six::before { background:radial-gradient(ellipse at 50% 50%,rgba(158,255,225,.85) 0 2%,transparent 3%),repeating-radial-gradient(ellipse at 50% 50%,transparent 0 13px,rgba(177,168,255,.34) 14px 15px,transparent 16px 27px),linear-gradient(140deg,#172844,#312957 55%,#1b4050); }
+    figcaption { position:absolute; inset:auto 0 0; padding:40px 18px 17px; color:#fff; font-size:14px; font-weight:700; background:linear-gradient(transparent,rgba(12,13,28,.8)); }
+    figcaption small { display:block; margin-bottom:5px; color:#d5d2e6; font:10px 'DM Mono',monospace; letter-spacing:.14em; text-transform:uppercase; }
+    .note { margin-top:34px; color:#77768f; font:11px 'DM Mono',monospace; letter-spacing:.08em; }
+    @media (max-width:700px) { .grid {grid-template-columns:repeat(2,1fr);gap:12px} figure {min-height:210px} }
+    @media (max-width:520px) { nav {gap:2px;padding:5px} nav a {padding:8px 10px;font-size:11px} main {padding-top:104px} .grid {grid-template-columns:1fr} figure {min-height:240px} }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; } }
+  </style>
+</head>
+<body>
+  <nav aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="gallery.html" aria-current="page">Gallery</a>
+  </nav>
+  <main>
+    <div class="eyebrow">Collected moments</div>
+    <h1><span>Little</span> gallery</h1>
+    <p class="intro">A few colors, moods, and moments to wander through.</p>
+    <section class="grid" aria-label="Abstract art gallery">
+      <figure class="art-one"><figcaption><small>01 · Golden hour</small>Somewhere between day and dream</figcaption></figure>
+      <figure class="art-two"><figcaption><small>02 · Blue hour</small>A quiet kind of wonder</figcaption></figure>
+      <figure class="art-three"><figcaption><small>03 · Soft light</small>Chasing the last glow</figcaption></figure>
+      <figure class="art-four"><figcaption><small>04 · New horizons</small>Room for possibility</figcaption></figure>
+      <figure class="art-five"><figcaption><small>05 · Afterglow</small>Let the colors linger</figcaption></figure>
+      <figure class="art-six"><figcaption><small>06 · Little universe</small>Worlds within worlds</figcaption></figure>
+    </section>
+    <div class="note">A STUDY IN COLOR &amp; LIGHT</div>
+  </main>
+</body>
+</html>
